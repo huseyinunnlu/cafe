@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\GalleryController;
 use App\Http\Controllers\MainController;
 /*
 |--------------------------------------------------------------------------
@@ -27,7 +28,9 @@ Route::group(['middleware' => ['auth', 'isAdmin'], 'prefix' => 'adminpanel',], f
     Route::get('/social/edit/{id}' ,[AdminController::class, 'socialEdit'])->name('social.edit');
     Route::post('/social/update/{id}' ,[AdminController::class, 'socialUpdate'])->name('social.update');
     Route::get('/social/destroy/{id}' ,[AdminController::class, 'socialDestroy'])->name('social.destroy');
-
+    //Gallery
+    Route::resource('gallery', GalleryController::class);
+    Route::get('gallery/destroy', [GalleryController::class, 'galleryDestroy'])->name('gallery.destroy');
 });
 
 
