@@ -9,7 +9,7 @@
 
         <!-- Fonts -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
-
+        <script src="{{asset('/assets/js/jquery-2.1.0.min.js')}}"></script>
         <!-- Styles -->
         <link rel="stylesheet" href="{{ mix('css/app.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('/assets/css/bootstrap.min.css') }}">
@@ -17,6 +17,8 @@
         <script src="{{asset('/assets/js/popper.js')}}"></script>
         <script src="{{asset('/assets/js/bootstrap.min.js')}}"></script>
         @livewireStyles
+
+        <script type="text/javascript" src="{{asset('/ckeditor/ckeditor.js')}}"></script>
 
         <!-- Scripts -->
         <script src="{{ mix('js/app.js') }}" defer></script>
@@ -38,6 +40,22 @@
 
             <!-- Page Content -->
             <main>
+                 <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+                @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+                @endif
+
+                @if(session('success'))
+                    <div class="alert alert-success">
+                        {{session('success')}}
+                    </div>
+                @endif
                 {{ $slot }}
             </main>
         </div>

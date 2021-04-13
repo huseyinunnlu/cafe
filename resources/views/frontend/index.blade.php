@@ -57,11 +57,8 @@
                     <div class="left-text-content">
                         <div class="section-heading">
                             <h6>About Us</h6>
-                            <h2>We Leave A Delicious Memory For You</h2>
                         </div>
-                        <p>Klassy Cafe is one of the best <a href="https://templatemo.com/tag/restaurant" target="_blank" rel="sponsored">restaurant HTML templates</a> with Bootstrap v4.5.2 CSS framework. You can download and feel free to use this website
-                            template layout for your restaurant business. You are allowed to use this template for commercial purposes. <br><br>You are NOT allowed to redistribute the template ZIP file on any template donwnload website. Please contact
-                            us for more information.</p>
+                        <p>{!!$setting->about!!}</p>
                         <div class="row">
                             <div class="col-4">
                                 <img src="assets/images/about-thumb-01.jpg" alt="">
@@ -269,22 +266,25 @@
                     <div class="left-text-content">
                         <div class="section-heading">
                             <h6>Contact Us</h6>
-                            <h2>Here You Can Make A Reservation Or Just walkin to our cafe</h2>
                         </div>
                         <p>Donec pretium est orci, non vulputate arcu hendrerit a. Fusce a eleifend riqsie, namei sollicitudin urna diam, sed commodo purus porta ut.</p>
+                        <div class="section-heading">
+                            <h2 style="font-size: 150%; text-align: center; margin: 60px 0;">For Special Reservations</h2>
+                        </div>
                         <div class="row">
+
                             <div class="col-lg-6">
                                 <div class="phone">
                                     <i class="fa fa-phone"></i>
                                     <h4>Phone Numbers</h4>
-                                    <span><a href="#">080-090-0990</a><br><a href="#">080-090-0880</a></span>
+                                    <span><a href="#">{{$setting->phone1}}</a><br><a href="#">{{$setting->phone2}}</a></span>
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="message">
                                     <i class="fa fa-envelope"></i>
                                     <h4>Emails</h4>
-                                    <span><a href="#">hello@company.com</a><br><a href="#">info@company.com</a></span>
+                                    <span><a href="#">{{$setting->email}}</a><br><a href="#">{{$setting->email}}</a></span>
                                 </div>
                             </div>
                         </div>

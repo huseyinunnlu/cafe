@@ -33,14 +33,14 @@
                 <div class="col-12">
                     <nav class="main-nav">
                         <!-- ***** Logo Start ***** -->
-                        <a href="index.html" class="logo">
-                            <img src="assets/images/klassy-logo.png" align="klassy cafe html template">
+                        <a href="{{route('index')}}" class="logo">
+                            <img src="{{asset($setting->logo)}}" align="klassy cafe html template">
                         </a>
                         <!-- ***** Logo End ***** -->
                         <!-- ***** Menu Start ***** -->
                         <ul class="nav">
                             <li class="scroll-to-section"><a href="#top" class="active">Home</a></li>
-                            <li class="scroll-to-section"><a href="#about">About</a></li>
+                            <li class="scroll-to-section"><a href="#about">About Us</a></li>
 
                             <!-- 
                             <li class="submenu">
@@ -83,23 +83,22 @@
                 <div class="col-lg-4 col-xs-12">
                     <div class="right-text-content">
                         <ul class="social-icons">
-                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                            <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                            @foreach($socials as $social)
+                            <li><a href="{{$social->link}}"><i class="{{$social->icon}}"></i></a></li>
+                            @endforeach
                         </ul>
                     </div>
                 </div>
                 <div class="col-lg-4">
                     <div class="logo">
-                        <a href="index.html"><img src="assets/images/white-logo.png" alt=""></a>
+                        <a href="{{route('index')}}"><img src="{{asset($setting->logo)}}" alt=""></a>
                     </div>
                 </div>
                 <div class="col-lg-4 col-xs-12">
                     <div class="left-text-content">
-                        <p>© Copyright Klassy Cafe Co.
-
-                            <br>Design: TemplateMo</p>
+                        <p>{!!$setting->copyright!!}<br>
+                            <span style="font-size: 120%;"><i class="fa fa-home mr-2"></i>{{$setting->adress}}</span>
+                        </p>
                     </div>
                 </div>
             </div>

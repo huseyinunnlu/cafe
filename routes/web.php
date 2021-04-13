@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\MainController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,10 +14,20 @@ use App\Http\Controllers\Admin\AdminController;
 |
 */
 
-Route::get('/', function () {
-    return view('frontend.index');
-});
+Route::get('/', [MainController::class, 'index'])->name('index');
+
 
 Route::group(['middleware' => ['auth', 'isAdmin'], 'prefix' => 'adminpanel',], function () {
     Route::get('/', [AdminController::class, 'index'])->name('dashboard');
+    //settings
+    Route::get('/settings' ,[AdminController::class, 'settings'])->name('settings.index');
+    Route::post('/settings/update/{id}' ,[AdminController::class, 'update'])->name('settings.update');
+    //Social Media links
+    Route::post('/social/create' ,[AdminController::class, 'socialCreate'])->name('social.create');
+    Route::get('/social/edit/{id}' ,[AdminController::class, 'socialEdit'])->name('social.edit');
+    Route::post('/social/update/{id}' ,[AdminController::class, 'socialUpdate'])->name('social.update');
+    Route::get('/social/destroy/{id}' ,[AdminController::class, 'socialDestroy'])->name('social.destroy');
+
 });
+
+

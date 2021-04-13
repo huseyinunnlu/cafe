@@ -21,6 +21,7 @@
         "tailwindcss": "^2.0.1"
     },
     "dependencies": {
-        "bootstrap": "^5.0.0-beta3"
+        "bootstrap": "^5.0.0-beta3",
+        "ckeditor4": "^4.16.0"
     }
 }
