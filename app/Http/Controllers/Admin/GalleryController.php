@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Requests\GalleryRequest;
+use App\Models\Gallery;
 
 class GalleryController extends Controller
 {
@@ -14,7 +16,8 @@ class GalleryController extends Controller
      */
     public function index()
     {
-        return view('adminpanel.gallery.gallery');
+        $galleries = Gallery::get();
+        return view('adminpanel.gallery.gallery',compact('galleries'));
     }
 
     /**
@@ -33,9 +36,33 @@ class GalleryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(GalleryRequest $request)
     {
-        return $request->post();
+        if($request->type=='image'){
+            $message='Image';
+            $key = '';
+            $keys = array_merge(range('a', 'z'), range('A', 'Z'));
+            for($i=0; $i < 10; $i++) {
+                $key .= $keys[array_rand($keys)];
+            }
+            if($request->hasFile('url')){
+                $filename = $key.'.'.$request->url->extension();
+                $filenameWithUpload = 'uploads/'.$filename;
+                $request->url->move(public_path('uploads'),$filename);
+                $request->merge([
+                    'url'=>$filenameWithUpload
+                ]);
+            }
+        Gallery::create($request->post());
+
+        }else if($request->type=='video'){
+            $message='Video';
+            Gallery::create($request->post());
+        }else{
+            return redirect()->back()->withErrors(['Select Any Url Type']);
+        }
+        return redirect()->back()->withSuccess($message.' Has Created Successfuly');
+
     }
 
     /**
@@ -57,7 +84,9 @@ class GalleryController extends Controller
      */
     public function edit($id)
     {
-        //
+        $galleries = Gallery::get();
+        $gallery = Gallery::find($id) ?? abort('404' ,'Gallery Not Found');
+        return view('adminpanel.gallery.gallery',compact('gallery','galleries'));
     }
 
     /**
@@ -69,7 +98,30 @@ class GalleryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        if($request->type=='image'){
+            $message='Image';
+            $key = '';
+            $keys = array_merge(range('a', 'z'), range('A', 'Z'));
+            for($i=0; $i < 10; $i++) {
+                $key .= $keys[array_rand($keys)];
+            }
+            if($request->hasFile('url')){
+                $filename = $key.'.'.$request->url->extension();
+                $filenameWithUpload = 'uploads/'.$filename;
+                $request->url->move(public_path('uploads'),$filename);
+                $request->merge([
+                    'url'=>$filenameWithUpload
+                ]);
+            }
+        Gallery::find($id)->update($request->post());
+
+        }else if($request->type=='video'){
+            $message='Video';
+            Gallery::find($id)->update($request->post());
+        }else{
+            return redirect()->back()->withErrors(['Select Any Url Type']);
+        }
+        return redirect()->route('gallery.index')()->withSuccess($message.' Has Updated Successfuly');
     }
 
     /**
@@ -80,6 +132,7 @@ class GalleryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Gallery::find($id)->delete();
+        return redirect()->route('gallery.index')->withSuccess('Has Deleted Successfuly');
     }
 }

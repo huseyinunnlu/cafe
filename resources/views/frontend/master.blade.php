@@ -39,9 +39,15 @@
                         <!-- ***** Logo End ***** -->
                         <!-- ***** Menu Start ***** -->
                         <ul class="nav">
-                            <li class="scroll-to-section"><a href="#top" class="active">Home</a></li>
+                            <li class="scroll-to-section"><a  @if(Route::currentRouteName()=='index') href="#top" class="active"@else href="{{route('index')}}" @endif>Home</a></li>
+                            <li class="scroll-to-section"><a href="{{route('gallery')}}" @if(Route::currentRouteName()=='gallery') class="active" @endif>Gallery</a></li>
+                            @if(Route::currentRouteName()!='index')
+                            @else
                             <li class="scroll-to-section"><a href="#about">About Us</a></li>
-
+                            <li class="scroll-to-section"><a href="#menu">Menu</a></li>
+                            <li class="scroll-to-section"><a href="#chefs">Chefs</a></li>
+                            <li class="scroll-to-section"><a href="#reservation">Contact Us</a></li>
+                            @endif
                             <!-- 
                             <li class="submenu">
                                 <a href="javascript:;">Drop Down</a>
@@ -52,9 +58,9 @@
                                 </ul>
                             </li>
                         -->
-                            <li class="scroll-to-section"><a href="#menu">Menu</a></li>
-                            <li class="scroll-to-section"><a href="#chefs">Chefs</a></li>
-                            <li class="submenu">
+
+                            
+                            <!--<li class="submenu">
                                 <a href="javascript:;">Features</a>
                                 <ul>
                                     <li><a href="#">Features Page 1</a></li>
@@ -62,9 +68,9 @@
                                     <li><a href="#">Features Page 3</a></li>
                                     <li><a href="#">Features Page 4</a></li>
                                 </ul>
-                            </li>
+                            </li>-->
                             <!-- <li class=""><a rel="sponsored" href="https://templatemo.com" target="_blank">External URL</a></li> -->
-                            <li class="scroll-to-section"><a href="#reservation">Contact Us</a></li>
+                            
                         </ul>
                         <a class='menu-trigger'>
                             <span>Menu</span>
@@ -75,7 +81,7 @@
             </div>
         </div>
     </header>
-    @yield('content');
+    @yield('content')
        <!-- ***** Footer Start ***** -->
     <footer>
         <div class="container">

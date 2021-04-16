@@ -1,5 +1,5 @@
 @extends('frontend.master')
-@section('content');
+@section('content')
     <!-- ***** Header Area End ***** -->
 
     <!-- ***** Main Banner Area Start ***** -->
@@ -20,27 +20,13 @@
                 <div class="col-lg-8">
                     <div class="main-banner header-text">
                         <div class="Modern-Slider">
-                            <!-- Item -->
+                            @foreach($simgs as $simg)
                             <div class="item">
                                 <div class="img-fill">
-                                    <img src="assets/images/slide-01.jpg" alt="">
+                                    <img src="{{asset($simg->url)}}" alt="">
                                 </div>
                             </div>
-                            <!-- // Item -->
-                            <!-- Item -->
-                            <div class="item">
-                                <div class="img-fill">
-                                    <img src="assets/images/slide-02.jpg" alt="">
-                                </div>
-                            </div>
-                            <!-- // Item -->
-                            <!-- Item -->
-                            <div class="item">
-                                <div class="img-fill">
-                                    <img src="assets/images/slide-03.jpg" alt="">
-                                </div>
-                            </div>
-                            <!-- // Item -->
+                            @endforeach
                         </div>
                     </div>
                 </div>
@@ -59,24 +45,12 @@
                             <h6>About Us</h6>
                         </div>
                         <p>{!!$setting->about!!}</p>
-                        <div class="row">
-                            <div class="col-4">
-                                <img src="assets/images/about-thumb-01.jpg" alt="">
-                            </div>
-                            <div class="col-4">
-                                <img src="assets/images/about-thumb-02.jpg" alt="">
-                            </div>
-                            <div class="col-4">
-                                <img src="assets/images/about-thumb-03.jpg" alt="">
-                            </div>
-                        </div>
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6 col-xs-12">
                     <div class="right-content">
                         <div class="thumb">
-                            <a rel="nofollow" href="http://youtube.com"><i class="fa fa-play"></i></a>
-                            <img src="assets/images/about-video-bg.jpg" alt="">
+                            <iframe src="{{asset($vabout->url)}}" style="width: 100%;height: 300px;"></iframe>
                         </div>
                     </div>
                 </div>

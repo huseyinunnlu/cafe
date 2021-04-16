@@ -16,6 +16,7 @@ use App\Http\Controllers\MainController;
 */
 
 Route::get('/', [MainController::class, 'index'])->name('index');
+Route::get('/gallery', [MainController::class, 'gallery'])->name('gallery');
 
 
 Route::group(['middleware' => ['auth', 'isAdmin'], 'prefix' => 'adminpanel',], function () {
@@ -30,7 +31,7 @@ Route::group(['middleware' => ['auth', 'isAdmin'], 'prefix' => 'adminpanel',], f
     Route::get('/social/destroy/{id}' ,[AdminController::class, 'socialDestroy'])->name('social.destroy');
     //Gallery
     Route::resource('gallery', GalleryController::class);
-    Route::get('gallery/destroy', [GalleryController::class, 'galleryDestroy'])->name('gallery.destroy');
+    Route::get('gallery/{id}/destroy', [GalleryController::class, 'destroy'])->name('gallery.destroy');
 });
 
 
