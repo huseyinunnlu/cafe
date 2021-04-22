@@ -13,6 +13,8 @@
     <link rel="stylesheet" href="{{asset('/assets/css/templatemo-klassy-cafe.css')}}">
     <link rel="stylesheet" href="{{asset('/assets/css/owl-carousel.css')}}">
     <link rel="stylesheet" href="{{asset('/assets/css/lightbox.css')}}">
+    <livewire:styles />
+    <livewire:scripts />
 </head>
 <body>
     <!-- ***** Preloader Start ***** -->

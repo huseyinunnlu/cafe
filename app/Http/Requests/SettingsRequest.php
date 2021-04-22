@@ -24,7 +24,7 @@ class SettingsRequest extends FormRequest
     public function rules()
     {
         return [
-            'logo'=>'file|nullable|size:max:1024|mimes:png',
+            'logo'=>'file|max:2048|mimes:png',
             'about'=>'required|max:15000|min:100',
             'contact'=>'required|min:50|max:1000',
             'phone1'=>'required',
@@ -37,7 +37,7 @@ class SettingsRequest extends FormRequest
 
     public function attributes() {
         return [
-            'logo'=>'Cafe Logo',
+            'logo'=>'Cafe Logo',            
             'about'=>'About Us Text',
             'contact'=>'Contact Us Text',
             'phone1'=>'1. Phone Number',

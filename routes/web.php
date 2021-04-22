@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\GalleryController;
+use App\Http\Controllers\Admin\ReservationController;
 use App\Http\Controllers\MainController;
 /*
 |--------------------------------------------------------------------------
@@ -32,6 +33,10 @@ Route::group(['middleware' => ['auth', 'isAdmin'], 'prefix' => 'adminpanel',], f
     //Gallery
     Route::resource('gallery', GalleryController::class);
     Route::get('gallery/{id}/destroy', [GalleryController::class, 'destroy'])->name('gallery.destroy');
+    //Reservation
+    Route::get('/reservations', [ReservationController::class, 'index'])->name('reservation.index');
+    Route::get('/reservations/{id}/detail', [ReservationController::class, 'detail'])->name('reservation.detail');
+    Route::get('/reservations/{id}/destroy', [ReservationController::class, 'destroy'])->name('reservation.destroy');
 });
 
 

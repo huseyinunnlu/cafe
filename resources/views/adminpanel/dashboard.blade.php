@@ -9,6 +9,9 @@
                     <div class="card-body">
                         <a href="{{route('gallery.index')}}"><i class="fas fa-images"></i> Gallery</a>
                     </div>
+                    <div class="card-body">
+                        <a href="{{route('reservation.index')}}"><i class="fas fa-images"></i> Reservations</a>
+                    </div>
                 </div>
             </div>
         </div>
