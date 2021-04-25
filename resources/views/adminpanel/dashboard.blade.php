@@ -12,6 +12,9 @@
                     <div class="card-body">
                         <a href="{{route('reservation.index')}}"><i class="fas fa-images"></i> Reservations</a>
                     </div>
+                    <div class="card-body">
+                        <a href="{{route('reservation.index')}}"><i class="fa fa-utensils"></i> Chefs</a>
+                    </div>
                 </div>
             </div>
         </div>

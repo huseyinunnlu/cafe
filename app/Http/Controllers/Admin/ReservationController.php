@@ -35,7 +35,7 @@ class ReservationController extends Controller
 		}else{
 			$reservations = Reserv::paginate(5) ?? abort(404,'Page Not Found');
 		}
-
+		
 		$reservv = Reserv::find($id) ?? abort('404','Reservation Not Found');
 		return view('adminpanel.reservations.list',compact('reservv','reservations')); 
 	}
