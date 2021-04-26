@@ -12,12 +12,15 @@
                     <div class="card-body">
                         <a href="{{route('reservation.index')}}">>Reservations</a>
                     </div>
+<<<<<<< HEAD
                     <div class="card-body">
                         <a href="{{route('chef.index')}}">>Chefs</a>
                     </div>
                     <div class="card-body">
                         <a href="{{route('menu.index')}}">Menu</a>
                     </div>
+=======
+>>>>>>> parent of 8c094ea (Chefs Finished with Livewire)
                 </div>
             </div>
         </div>

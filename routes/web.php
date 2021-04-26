@@ -4,8 +4,11 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\GalleryController;
 use App\Http\Controllers\Admin\ReservationController;
+<<<<<<< HEAD
 use App\Http\Controllers\Admin\ChefController;
 use App\Http\Controllers\Admin\MenuController;
+=======
+>>>>>>> parent of 8c094ea (Chefs Finished with Livewire)
 use App\Http\Controllers\MainController;
 /*
 |--------------------------------------------------------------------------
@@ -39,9 +42,12 @@ Route::group(['middleware' => ['auth', 'isAdmin'], 'prefix' => 'adminpanel',], f
     Route::get('/reservations', [ReservationController::class, 'index'])->name('reservation.index');
     Route::get('/reservations/{id}/detail', [ReservationController::class, 'detail'])->name('reservation.detail');
     Route::get('/reservations/{id}/destroy', [ReservationController::class, 'destroy'])->name('reservation.destroy');
+<<<<<<< HEAD
     Route::get('/chefs', [ChefController::class, 'index'])->name('chef.index');
     //Menu
     Route::resource('menu', MenuController::class);
+=======
+>>>>>>> parent of 8c094ea (Chefs Finished with Livewire)
 });
 
 
