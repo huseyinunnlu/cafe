@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\GalleryController;
 use App\Http\Controllers\Admin\ReservationController;
 use App\Http\Controllers\Admin\ChefController;
+use App\Http\Controllers\Admin\MenuController;
 use App\Http\Controllers\MainController;
 /*
 |--------------------------------------------------------------------------
@@ -39,7 +40,8 @@ Route::group(['middleware' => ['auth', 'isAdmin'], 'prefix' => 'adminpanel',], f
     Route::get('/reservations/{id}/detail', [ReservationController::class, 'detail'])->name('reservation.detail');
     Route::get('/reservations/{id}/destroy', [ReservationController::class, 'destroy'])->name('reservation.destroy');
     Route::get('/chefs', [ChefController::class, 'index'])->name('chef.index');
-
+    //Menu
+    Route::resource('menu', MenuController::class);
 });
 
 

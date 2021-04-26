@@ -4,16 +4,19 @@
             <div class="col-md-6">
                 <div class="card">
                     <div class="card-body">
-                        <a href="{{route('settings.index')}}"><i class="fa fa-gear"></i> Settings</a>
+                        <a href="{{route('settings.index')}}">Settings</a>
                     </div>
                     <div class="card-body">
-                        <a href="{{route('gallery.index')}}"><i class="fas fa-images"></i> Gallery</a>
+                        <a href="{{route('gallery.index')}}">Gallery</a>
                     </div>
                     <div class="card-body">
-                        <a href="{{route('reservation.index')}}"><i class="fas fa-images"></i> Reservations</a>
+                        <a href="{{route('reservation.index')}}">>Reservations</a>
                     </div>
                     <div class="card-body">
-                        <a href="{{route('reservation.index')}}"><i class="fa fa-utensils"></i> Chefs</a>
+                        <a href="{{route('chef.index')}}">>Chefs</a>
+                    </div>
+                    <div class="card-body">
+                        <a href="{{route('menu.index')}}">Menu</a>
                     </div>
                 </div>
             </div>

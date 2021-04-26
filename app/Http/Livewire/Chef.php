@@ -41,8 +41,6 @@ class Chef extends Component
 			'social4'=>'url|nullable',
 		]);
 
-
-
 		$photo = $this->photo->store('uploads');
 
 		Chefs::create([
